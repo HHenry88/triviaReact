@@ -1,6 +1,10 @@
 import request from 'request';
 import React from 'react';
-// import getTrivia from '../index.js';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 
 class App extends React.Component {
   constructor(props){
@@ -76,7 +80,7 @@ class App extends React.Component {
       if(err){
         console.warn('rrrrr',err);
       }else {
-        alert(body);
+        console.log(body);
       }
     })
   }
@@ -85,7 +89,7 @@ class App extends React.Component {
     return (
       <div>
         <h1 className="text-center">HRNYC8 Trivia</h1>
-        <form className="col-sm-6 col-sm-offset-3">
+        <form className="col-sm-6 col-sm-offset-3" onSubmit={(event) => this.startTrivia(event)}>
           <div className="form-group">
             <label>Number of Questions:</label>
             <select className="form-control" value={this.state.numberOfQuestions} onChange={this.changeNumber}>
@@ -145,7 +149,7 @@ class App extends React.Component {
             </select>
           </div>
 
-          <button className="center-block btn btn-danger" onClick={() => this.startTrivia(event)}>Start Trivia</button>
+          <button className="center-block btn btn-danger" type="submit">Start Trivia</button>
         </form>
       </div>
     )
