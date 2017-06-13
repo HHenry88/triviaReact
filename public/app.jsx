@@ -1,10 +1,7 @@
 import request from 'request';
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom'
+import Trivia from './trivia.jsx';
+// import fetchData from '../index.'
 
 class App extends React.Component {
   constructor(props){
@@ -13,7 +10,8 @@ class App extends React.Component {
       numberOfQuestions: '10',
       category: '',
       difficulty: '',
-      type: ''
+      type: '',
+      questions: []
     }
 
     this.changeNumber = this.changeNumber.bind(this);
@@ -80,7 +78,12 @@ class App extends React.Component {
       if(err){
         console.warn('rrrrr',err);
       }else {
-        console.log(body);
+        var parsed = JSON.parse(body).results;
+
+        this.setState({
+          questions: parsed
+        })
+        console.log(parsed);
       }
     })
   }
@@ -151,7 +154,9 @@ class App extends React.Component {
 
           <button className="center-block btn btn-danger" type="submit">Start Trivia</button>
         </form>
-      </div>
+
+      <Trivia questions={this.state.questions} className="text-center"/>
+    </div>
     )
   }
 }

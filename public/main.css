@@ -2,3 +2,13 @@
   margin: 0 auto;
   width: 80%;
 }*/
+
+.incorrectAnswer, .correctAnswer {
+  list-style: none;
+  border-bottom: 0.5px solid grey;
+  margin-top: 0.5em;
+}
+
+li {
+  cursor: pointer;
+}
