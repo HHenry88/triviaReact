@@ -8,6 +8,6 @@ app.use(parser.json());
 
 app.get('*', express.static(__dirname));
 
-app.listen(process.ENV.PORT || 5678)
+app.listen(process.env.PORT || 5678)
 
 console.log('server now listening on 5678');
