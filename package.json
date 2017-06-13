@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index",
+    "startmon": "nodemon index",
+    "start": "node index",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel . --out-dir compiled --presets=es2015,react --ignore=node_modules,compiled,index.js,webpack.config.js --source-maps inline -w",
     "compile": "webpack -d --watch"
